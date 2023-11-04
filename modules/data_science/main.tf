@@ -226,6 +226,7 @@ resource "google_notebooks_instance" "ai_notebook_usermanaged" {
 
   labels = {
     module = "data-science"
+    project  = "2023-43"
   }
 
   metadata = {
