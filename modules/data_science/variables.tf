@@ -126,7 +126,7 @@ variable "create_project" {
 variable "create_usermanaged_notebook" {
   description = "Set to true if you want to create user managed workbench notebooks. If you want to create google managed workbench notebook, set this variable to false. {{UIMeta group=3 order=1 }}"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "container_image_repository" {
