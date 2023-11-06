@@ -143,7 +143,7 @@ variable "db_version" {
 variable "deployment_id" {
   description = "Adds a suffix of 4 random characters to the `project_id`."
   type        = string
-  default     = "moon"
+  default     = null
 }
 
 variable "enable_services" {
