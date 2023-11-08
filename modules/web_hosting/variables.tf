@@ -28,19 +28,19 @@ variable "billing_budget_alert_spend_basis" {
 variable "billing_budget_alert_spent_percents" {
   description = "A list of percentages of the budget to alert on when threshold is exceeded. {{UIMeta group=0 order=7 updatesafe }}"
   type        = list(number)
-  default     = [0.1, 0.25, 0.5, 0.75, 0.95, 1.0, 1.1]
+  default     = [0.5, 0.7, 1]
 }
 
 variable "billing_budget_amount" {
   description = "The amount to use as the budget in USD. {{UIMeta group=0 order=8 updatesafe }}"
   type        = number
-  default     = 100
+  default     = 500
 }
 
 variable "billing_budget_amount_currency_code" {
   description = "The 3-letter currency code defined in ISO 4217 (https://cloud.google.com/billing/docs/resources/currency#list_of_countries_and_regions). It must be the currency associated with the billing account. {{UIMeta group=0 order=9 updatesafe }}"
   type        = string
-  default     = "AUD"
+  default     = "USD"
 }
 
 variable "billing_budget_calendar_period" {
@@ -155,7 +155,7 @@ variable "enable_services" {
 variable "folder_id" {
   description = "Folder ID where the project should be created. It can be skipped if already setting organization_id. Leave blank if the project should be created directly underneath the Organization node. {{UIMeta group=0 order=2 updatesafe }}"
   type        = string
-  default     = "146022437085"
+  default     = ""
 }
 
 variable "ip_cidr_ranges" {
@@ -197,13 +197,13 @@ variable "project_id_prefix" {
 variable "region" {
   description = "Primary region where the CloudSQL, Compute Instance and VPC subnet will be deployed. List - https://cloud.google.com/compute/docs/regions-zones#available. {{UIMeta group=0 order=19 }}"
   type        = string
-  default     = "australia-southeast1"
+  default     = "us-central1"
 }
 
 variable "region_secondary" {
   description = "Secondary region where the Compute Instance and VPC subnet will be deployed. List - https://cloud.google.com/compute/docs/regions-zones#available. {{UIMeta group=0 order=20 }}"
   type        = string
-  default     = "australia-southeast2"
+  default     = "asia-south1"
 }
 
 variable "resource_creator_identity" {
