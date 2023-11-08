@@ -93,7 +93,7 @@ variable "project_name" {
 variable "random_id" {
   description = "Random ID that will be added to the project ID.  If the value is 'null', a random one will be generated here."
   type        = string
-  default     = null
+  default     = "base"
 }
 
 variable "service_config" {
