@@ -78,6 +78,7 @@ resource "google_project_iam_member" "function_create_project_permissions" {
   for_each = toset([
     "roles/cloudbuild.builds.editor",
     "roles/logging.logWriter",
+    "roles/artifactregistry.reader",
     "roles/datastore.owner"
   ])
   member  = "serviceAccount:${google_service_account.function_identity.email}"
