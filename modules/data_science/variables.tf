@@ -40,7 +40,7 @@ variable "billing_budget_amount" {
 variable "billing_budget_amount_currency_code" {
   description = "The 3-letter currency code defined in ISO 4217 (https://cloud.google.com/billing/docs/resources/currency#list_of_countries_and_regions). It must be the currency associated with the billing account. {{UIMeta group=0 order=9 updatesafe }}"
   type        = string
-  default     = "USD"
+  default     = "AUD"
 }
 
 variable "billing_budget_calendar_period" {
@@ -126,7 +126,7 @@ variable "create_project" {
 variable "create_usermanaged_notebook" {
   description = "Set to true if you want to create user managed workbench notebooks. If you want to create google managed workbench notebook, set this variable to false. {{UIMeta group=3 order=1 }}"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "container_image_repository" {
