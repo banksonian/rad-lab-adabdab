@@ -210,7 +210,7 @@ variable "network_name" {
 variable "notebook_count" {
   description = "Number of AI Notebooks requested. {{UIMeta group=3 order=2 updatesafe }}"
   type        = number
-  default     = 1
+  default     = 3
 }
 
 variable "organization_id" {
