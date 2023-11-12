@@ -204,7 +204,7 @@ variable "machine_type" {
 variable "network_name" {
   description = "Name of the network to be created. {{UIMeta group=2 order=2 }}"
   type        = string
-  default     = "ai-notebook-${formatdate("YYYY-MM-DDTHH:MM:SSZ", timestamp())}"
+  default     = "ai-notebook"
 }
 
 variable "notebook_count" {
@@ -270,7 +270,7 @@ variable "set_trustedimage_project_policy" {
 variable "subnet_name" {
   description = "Name of the subnet where to deploy the Notebooks. {{UIMeta group=2 order=3 }}"
   type        = string
-  default     = "subnet-ai-notebook-${formatdate("YYYY-MM-DDTHH:MM:SSZ", timestamp())}"
+  default     = "subnet-ai-notebook"
 }
 
 variable "trusted_groups" {
