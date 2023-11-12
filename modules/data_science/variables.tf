@@ -28,13 +28,13 @@ variable "billing_budget_alert_spend_basis" {
 variable "billing_budget_alert_spent_percents" {
   description = "A list of percentages of the budget to alert on when threshold is exceeded. {{UIMeta group=0 order=7 updatesafe }}"
   type        = list(number)
-  default     = [0.5, 0.7, 1]
+  default     = [0.05, 0.25, 0.50, 0.75, 0.95, 1.0, 1.25]
 }
 
 variable "billing_budget_amount" {
   description = "The amount to use as the budget in USD. {{UIMeta group=0 order=8 updatesafe }}"
   type        = number
-  default     = 500
+  default     = 50
 }
 
 variable "billing_budget_amount_currency_code" {
@@ -84,13 +84,13 @@ variable "billing_budget_notification_email_addresses" {
 variable "billing_budget_pubsub_topic" {
   description = "If true, creates a Cloud Pub/Sub topic where budget related messages will be published. Default is false. {{UIMeta group=0 order=15 updatesafe }}"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "boot_disk_size_gb" {
   description = "The size of the boot disk in GB attached to this instance.  {{UIMeta group=3 order=8 options=50,100,500 }}"
   type        = number
-  default     = 100
+  default     = 50
 }
 
 variable "boot_disk_type" {
@@ -102,7 +102,7 @@ variable "boot_disk_type" {
 variable "create_budget" {
   description = "If the budget should be created. {{UIMeta group=0 order=5 updatesafe }}"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "create_container_image" {
@@ -180,7 +180,7 @@ variable "gpu_accelerator_core_count" {
 variable "image_family" {
   description = "Image of the AI notebook. {{UIMeta group=3 order=13 }}"
   type        = string
-  default     = "tf-latest-cpu"
+  default     = "pytorch-latest-cpu"
 }
 
 variable "image_project" {
@@ -192,7 +192,7 @@ variable "image_project" {
 variable "ip_cidr_range" {
   description = "Unique IP CIDR Range for AI Notebooks subnet. {{UIMeta group=2 order=4 }}"
   type        = string
-  default     = "10.142.190.0/24"
+  default     = "10.138.25.0/24"
 }
 
 variable "machine_type" {
@@ -204,13 +204,13 @@ variable "machine_type" {
 variable "network_name" {
   description = "Name of the network to be created. {{UIMeta group=2 order=2 }}"
   type        = string
-  default     = "ai-notebook"
+  default     = "ai-notebook-${formatdate("YYYY-MM-DDTHH:MM:SSZ", timestamp())}"
 }
 
 variable "notebook_count" {
   description = "Number of AI Notebooks requested. {{UIMeta group=3 order=2 updatesafe }}"
   type        = number
-  default     = 3
+  default     = 1
 }
 
 variable "organization_id" {
@@ -246,31 +246,31 @@ variable "resource_creator_identity" {
 variable "set_domain_restricted_sharing_policy" {
   description = "Enable org policy to allow all principals to be added to IAM policies. {{UIMeta group=0 order=16 updatesafe }}"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "set_external_ip_policy" {
   description = "Enable org policy to allow External (Public) IP addresses on virtual machines. {{UIMeta group=0 order=17 updatesafe }}"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "set_shielded_vm_policy" {
   description = "Apply org policy to disable shielded VMs. {{UIMeta group=0 order=18 updatesafe }}"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "set_trustedimage_project_policy" {
   description = "Apply org policy to set the trusted image projects. {{UIMeta group=0 order=19 updatesafe }}"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "subnet_name" {
   description = "Name of the subnet where to deploy the Notebooks. {{UIMeta group=2 order=3 }}"
   type        = string
-  default     = "subnet-ai-notebook"
+  default     = "subnet-ai-notebook-${formatdate("YYYY-MM-DDTHH:MM:SSZ", timestamp())}"
 }
 
 variable "trusted_groups" {
@@ -288,5 +288,5 @@ variable "trusted_users" {
 variable "zone" {
   description = "Cloud Zone associated to the AI Notebooks. List of zones - https://cloud.google.com/compute/docs/regions-zones#available. {{UIMeta group=0 order=20 }}"
   type        = string
-  default     = "us-central1-c"
+  default     = "australia-southeast1-b"
 }
