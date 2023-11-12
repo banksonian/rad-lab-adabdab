@@ -250,6 +250,7 @@ resource "google_notebooks_runtime" "ai_notebook_googlemanaged" {
   software_config {
     post_startup_script          = format("gs://%s/%s", google_storage_bucket.user_scripts_bucket.name, google_storage_bucket_object.notebook_post_startup_script.name)
     post_startup_script_behavior = "RUN_EVERY_START"
+    idle_shutdown_timeout = 15
   }
   virtual_machine {
     virtual_machine_config {
