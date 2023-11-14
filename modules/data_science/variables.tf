@@ -290,3 +290,35 @@ variable "zone" {
   type        = string
   default     = "australia-southeast1-b"
 }
+
+variable "mandatory_tags" {
+  description = "Mandatory tags to be applied to resources"
+  type        = map(string)
+  default     = {
+    uts_costcentre  = ""
+    uts_primarycontact  = "shane_isley_at_uts"
+    uts_env = "developemnt"
+    uts_data_classification = "internal"
+    uts_project = "2023-43"
+    uts_research  = "false"
+    uts_iac = "true"
+    uts_repo  = "gh_banksonian_rad-lab-adabdab"
+  }
+}
+
+variable "optional_tags" {
+  description = "Mandatory tags to be applied to resources"
+  type        = map(string)
+  default     = {
+    uts_secondarycontact = "mauricio_bascunan_at_uts"
+    uts_datasteward = ""
+    uts_secondary_costcenter  = ""
+    uts_data_protection = ""
+    uts_patchwindow = ""
+    uts_operationalhours  = ""
+    uts_application = "poc_jupyter_notebook_for_feit_socs_2024"
+    uts_sso_group = ""
+    uts_edr = "false"
+    uts_247 = "false"
+  }
+}
